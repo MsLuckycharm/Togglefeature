@@ -68,9 +68,35 @@
         </main>
 
         <script>
-            // TODO: Add JavaScript here to handle theme toggling.
-            // Hint: Use document.getElementById() to select the button.
-            // Check the article for step-by-step guidance!
+            // 1. Function to apply a theme
+            function applyTheme(theme) {
+                if (theme === 'dark') {
+                    document.body.classList.add('dark');
+                } else {
+                    document.body.classList.remove('dark');
+                }
+            }
+        
+            // 2. Retrieve saved theme from localStorage, or default to 'light'
+            let savedTheme = localStorage.getItem('theme');
+            if (!savedTheme) {
+                savedTheme = 'light';
+                localStorage.setItem('theme', 'light');
+            }
+            applyTheme(savedTheme);
+        
+            // 3. Add click event to toggle container
+            const toggleContainer = document.getElementById('theme-toggle-container');
+        
+            toggleContainer.addEventListener('click', () => {
+                // Toggle between 'light' and 'dark'
+                const currentTheme = document.body.classList.contains('dark') ? 'dark' : 'light';
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        
+                // Apply the new theme and save it
+                applyTheme(newTheme);
+                localStorage.setItem('theme', newTheme);
+            });
         </script>
     </body>
 
