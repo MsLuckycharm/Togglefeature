@@ -1,4 +1,5 @@
 # Accessibility Feature Assignment Repository
+ <meta name="author" content="Ashley Persley">
 
 ## Overview
 
